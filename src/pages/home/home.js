@@ -15,14 +15,16 @@ const Home = () => {
   const homeElement = useMemo(() => homeRef, []);
 
   return (
-    <div ref={homeRef} className={styles.home} data-cy='home-page'>
-      <SliderHomePage />
-      <CategoriesList />
-      <ConstructorPreview />
-      <ModelsList />
-      <OurLooks />
-      <ScrollBar homeRef={homeElement} />
-    </div>
+    <>
+      <div ref={homeRef} className={styles.home} data-cy='home-page'>
+        <SliderHomePage />
+        <CategoriesList />
+        <ConstructorPreview />
+        <ModelsList />
+        <OurLooks />
+      </div>
+      {homeElement.current ? <ScrollBar homeRef={homeElement} /> : ''}
+    </>
   );
 };
 
